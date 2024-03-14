@@ -35,30 +35,30 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(144, 108);
+            this.button1.Location = new System.Drawing.Point(225, 75);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(137, 54);
+            this.button1.Size = new System.Drawing.Size(324, 101);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Select File(s)";
+            this.button1.Text = "Select HEIC File(s)";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(378, 122);
+            this.textBox1.Location = new System.Drawing.Point(135, 212);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(258, 26);
+            this.textBox1.Size = new System.Drawing.Size(493, 26);
             this.textBox1.TabIndex = 1;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // convert
             // 
-            this.convert.Location = new System.Drawing.Point(297, 293);
+            this.convert.Location = new System.Drawing.Point(225, 290);
             this.convert.Name = "convert";
-            this.convert.Size = new System.Drawing.Size(146, 60);
+            this.convert.Size = new System.Drawing.Size(324, 102);
             this.convert.TabIndex = 2;
-            this.convert.Text = "Convert";
+            this.convert.Text = "Convert to JPG";
             this.convert.UseVisualStyleBackColor = true;
             this.convert.Click += new System.EventHandler(this.convert_Click);
             // 
