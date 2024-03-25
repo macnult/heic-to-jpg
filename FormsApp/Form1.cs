@@ -8,7 +8,7 @@ namespace FormsApp
 {
     public partial class Form1 : Form
     {
-        private OpenFileDialog dialog = new OpenFileDialog(); // Declare dialog as a member variable
+        private OpenFileDialog dialog = new OpenFileDialog(); 
 
         public Form1()
         {
@@ -22,19 +22,17 @@ namespace FormsApp
 
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                string[] filePaths = dialog.FileNames; // Array of filenames
+                string[] filePaths = dialog.FileNames; 
 
-                // Clear the textbox before displaying new filenames (optional)
                 textBox1.Text = "";
 
-                bool isFirstFile = true; // Flag to track the first file
-
-                // Loop through filenames and display them in the textbox
+                bool isFirstFile = true;
+                
+                // Put file names into textbox
                 foreach (string filePath in filePaths)
                 {
                     string fileName = Path.GetFileName(filePath);
 
-                    // Formatting each file name
                     if (isFirstFile)
                     {
                         textBox1.Text += "\"" + fileName;
@@ -68,7 +66,7 @@ namespace FormsApp
                     using (MagickImage image = new MagickImage(filePath))
                     {
                         string newPath = Path.ChangeExtension(filePath, ".jpg");
-                        image.Quality = 100; // Adjust quality as needed (0-100)
+                        image.Quality = 100; // Adjust quality (0-100)
                         image.Write(newPath);
                     }
                 }
