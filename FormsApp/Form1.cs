@@ -8,12 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using ImageMagick;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace FormsApp
 {
     public partial class Form1 : Form
     {
+        private OpenFileDialog dialog = new OpenFileDialog(); // Declare dialog as a member variable
+
         public Form1()
         {
             InitializeComponent();
@@ -21,19 +24,17 @@ namespace FormsApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
+            dialog.Filter = "HEIC Files (*.heic)|*.heic";
+            dialog.Multiselect = true;
 
-            openFileDialog.Filter = "HEIC Files (*.heic)|*.heic";
-            openFileDialog.Multiselect = true;
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            if (dialog.ShowDialog() == DialogResult.OK)
             {
-                string[] filePaths = openFileDialog.FileNames;  // Array of filenames
+                string[] filePaths = dialog.FileNames; // Array of filenames
 
                 // Clear the textbox before displaying new filenames (optional)
                 textBox1.Text = "";
 
-                bool isFirstFile = true;  // Flag to track the first file
+                bool isFirstFile = true; // Flag to track the first file
 
                 // Loop through filenames and display them in the textbox
                 foreach (string filePath in filePaths)
@@ -48,7 +49,6 @@ namespace FormsApp
                     }
                     else
                     {
-                        
                         textBox1.Text += ", \"" + fileName;
                     }
                 }
@@ -58,12 +58,34 @@ namespace FormsApp
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            // i think the convert script would go here
+            // May need something later
         }
 
         private void convert_Click(object sender, EventArgs e)
         {
+            if (dialog.FileNames.Length == 0)
+            {
+                MessageBox.Show("Please select HEIC files to convert.");
+                return;
+            }
 
+            foreach (string filePath in dialog.FileNames)
+            {
+                try
+                {
+                    using (MagickImage image = new MagickImage(filePath))
+                    {
+                        string newPath = Path.ChangeExtension(filePath, ".jpg");
+                        image.Quality = 100; // Adjust quality as needed (0-100)
+                        image.Write(newPath);
+                        MessageBox.Show($"Converted {filePath} to JPG successfully!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error converting {filePath}: {ex.Message}");
+                }
+            }
         }
     }
 }
