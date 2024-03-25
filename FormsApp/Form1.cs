@@ -68,7 +68,6 @@ namespace FormsApp
                 MessageBox.Show("Please select HEIC files to convert.");
                 return;
             }
-
             foreach (string filePath in dialog.FileNames)
             {
                 try
@@ -78,7 +77,6 @@ namespace FormsApp
                         string newPath = Path.ChangeExtension(filePath, ".jpg");
                         image.Quality = 100; // Adjust quality as needed (0-100)
                         image.Write(newPath);
-                        MessageBox.Show($"Converted {filePath} to JPG successfully!");
                     }
                 }
                 catch (Exception ex)
@@ -86,6 +84,7 @@ namespace FormsApp
                     MessageBox.Show($"Error converting {filePath}: {ex.Message}");
                 }
             }
-        }
+            MessageBox.Show($"All files converted to JPG successfully!");
+        }  
     }
 }
