@@ -63,6 +63,9 @@ namespace FormsApp
             {
                 try
                 {
+                    // Test if this command works
+                    MagickNET.Initialize();
+
                     using (MagickImage image = new MagickImage(filePath))
                     {
                         string newPath = Path.ChangeExtension(filePath, ".jpg");
