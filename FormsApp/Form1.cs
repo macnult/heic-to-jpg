@@ -63,7 +63,7 @@ namespace FormsApp
             {
                 try
                 {
-                    // Test if this command works
+                    // Testing purposes
                     MagickNET.Initialize();
 
                     using (MagickImage image = new MagickImage(filePath))
