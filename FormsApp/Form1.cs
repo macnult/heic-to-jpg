@@ -8,7 +8,7 @@ namespace FormsApp
 {
     public partial class Form1 : Form
     {
-        private OpenFileDialog dialog = new OpenFileDialog(); 
+        private readonly OpenFileDialog dialog = new OpenFileDialog(); 
 
         public Form1()
         {
