@@ -59,6 +59,13 @@ namespace FormsApp
                 MessageBox.Show("Please select HEIC files to convert.");
                 return;
             }
+            // First selected file is the folder's directory location
+            string baseDirectory = Path.GetDirectoryName(dialog.FileNames[0]);
+
+            string convertedFolder = Path.Combine(baseDirectory, "converted_" + Guid.NewGuid().ToString());
+            Directory.CreateDirectory(convertedFolder);
+
+
             foreach (string filePath in dialog.FileNames)
             {
                 try
@@ -68,7 +75,7 @@ namespace FormsApp
 
                     using (MagickImage image = new MagickImage(filePath))
                     {
-                        string newPath = Path.ChangeExtension(filePath, ".jpg");
+                        string newPath = Path.Combine(convertedFolder, Path.GetFileNameWithoutExtension(filePath) + ".jpg");
                         image.Quality = 100; // Adjust quality (0-100)
                         image.Write(newPath);
                     }
