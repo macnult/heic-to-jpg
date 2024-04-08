@@ -15,7 +15,7 @@ namespace FormsApp
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             dialog.Filter = "HEIC Files (*.heic)|*.heic";
             dialog.Multiselect = true;
@@ -47,12 +47,12 @@ namespace FormsApp
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
             // May need something later
         }
 
-        private void convert_Click(object sender, EventArgs e)
+        private void Convert_Click(object sender, EventArgs e)
         {
             if (dialog.FileNames.Length == 0)
             {

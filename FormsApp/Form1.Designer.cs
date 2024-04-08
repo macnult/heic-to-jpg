@@ -41,7 +41,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Select HEIC File(s)";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // textBox1
             // 
@@ -50,7 +50,7 @@
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(493, 26);
             this.textBox1.TabIndex = 1;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // convert
             // 
@@ -60,7 +60,7 @@
             this.convert.TabIndex = 2;
             this.convert.Text = "Convert to JPG";
             this.convert.UseVisualStyleBackColor = true;
-            this.convert.Click += new System.EventHandler(this.convert_Click);
+            this.convert.Click += new System.EventHandler(this.Convert_Click);
             // 
             // Form1
             // 
