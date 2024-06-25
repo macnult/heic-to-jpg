@@ -51,7 +51,7 @@ namespace FormsApp
         {
             // May need something later
         }
-
+        
         private void Convert_Click(object sender, EventArgs e)
         {
             if (dialog.FileNames.Length == 0)
